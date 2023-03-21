@@ -19,4 +19,3 @@ const Resume = () => {
 
 export default Resume;
 
-// git@github.com:CarolinaAriadne/projeto-controle-de-financas.git
