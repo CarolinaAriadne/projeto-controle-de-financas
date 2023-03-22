@@ -30,18 +30,19 @@ export const Input = styled.input`
   padding: 5px 10px;
   font-size: 15px;
   border: 1px solid #ccc;
+  margin-top: 7px;
 `;
 
 export const RadioGroup = styled.div`
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 
-input {
+  input {
     margin-left: 20px;
     margin-right: 5px;
     accent-color: black;
     margin-top: 0;
-}
+  }
 `;
 
 export const Button = styled.button`

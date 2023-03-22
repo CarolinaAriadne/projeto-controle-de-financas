@@ -32,11 +32,19 @@ const App = () => {
     setTotal(`${Number(income) < Number(expense) ? '-' : ''}R$ ${total}`);
   }, [transactionsList]);
 
+  const handleAdd = transaction => {
+    const newArrayTransactions = [...transactionsList, transaction];
+
+    setTransactionsList(newArrayTransactions);
+
+    localStorage.setItem('transactions', JSON.stringify(newArrayTransactions));
+  };
+
   return (
     <>
       <Header />
-      <Resume />
-      <Form />
+      <Resume income={income} expense={expense} total={total} />
+      <Form handleAdd={handleAdd} />
       <GlobalStyle />
     </>
   );
