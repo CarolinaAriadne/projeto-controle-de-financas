@@ -1,4 +1,4 @@
-# Projeto carteira de controle financeiro - Front-End
+# Projeto carteira de controle financeiro /  Front-End
 
 ## Tecnologias e ferramentas utilizadas:
 
