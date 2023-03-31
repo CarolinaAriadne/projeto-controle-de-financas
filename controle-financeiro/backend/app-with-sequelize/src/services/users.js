@@ -28,17 +28,21 @@ const getUserId = async id => {
   return userId;
 };
 
-const createUser = async (dados) => {
+const createUser = async dados => {
   const newUser = await User.findOne({ where: { email: dados.email } });
 
   if (newUser) {
     throw erroHandler(409, 'User already exist');
   }
 
-   await User.create(dados);
+  await User.create(dados);
 
   const returnToken = generateJWT.generateJWT(dados.email);
   return returnToken;
+};
+
+const deleteUser = async id => {
+  await User.destroy({ where: { id } });
 };
 
 module.exports = {
@@ -46,4 +50,5 @@ module.exports = {
   loginUser,
   getUserId,
   createUser,
+  deleteUser,
 };
