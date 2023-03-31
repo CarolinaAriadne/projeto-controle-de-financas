@@ -28,8 +28,22 @@ const getUserId = async id => {
   return userId;
 };
 
+const createUser = async (dados) => {
+  const newUser = await User.findOne({ where: { email: dados.email } });
+
+  if (newUser) {
+    throw erroHandler(409, 'User already exist');
+  }
+
+   await User.create(dados);
+
+  const returnToken = generateJWT.generateJWT(dados.email);
+  return returnToken;
+};
+
 module.exports = {
   getAllUsers,
   loginUser,
   getUserId,
+  createUser,
 };

@@ -29,8 +29,19 @@ const getUserId = async (req, res, next) => {
   }
 };
 
+const createUser = async (req, res, next) => {
+  try {
+    const { nome, email, senha } = req.body;
+    const token = await Users.createUser({ nome, email, senha });
+    return res.status(200).json({ token });
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getAllUsers,
   loginUser,
   getUserId,
+  createUser,
 };
