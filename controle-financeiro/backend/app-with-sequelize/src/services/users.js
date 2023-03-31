@@ -9,7 +9,6 @@ const getAllUsers = async () => {
 
 const loginUser = async (email, senha) => {
   const user = await User.findOne({ where: { email, senha } });
-  console.log(user, 'SERVICE ------')
   if (!user) {
     throw erroHandler(400, 'Invalids fields');
   }
@@ -17,7 +16,20 @@ const loginUser = async (email, senha) => {
   return returnToken;
 };
 
+const getUserId = async id => {
+  const userId = await User.findByPk(id, {
+    attributes: { exclude: 'senha' },
+  });
+
+  if (!userId) {
+    throw erroHandler('404', 'User does not exist');
+  }
+
+  return userId;
+};
+
 module.exports = {
   getAllUsers,
   loginUser,
+  getUserId,
 };
