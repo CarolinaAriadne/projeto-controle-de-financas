@@ -17,4 +17,4 @@ const UserModel = (sequelize, DataTypes) => {
   return User;
 };
 
-export default UserModel;
+module.exports = UserModel;

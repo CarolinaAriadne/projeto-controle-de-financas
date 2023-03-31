@@ -17,4 +17,4 @@ const WalletModel = (sequelize, DataTypes) => {
   return Wallet;
 };
 
-export default WalletModel;
+module.exports = WalletModel;
