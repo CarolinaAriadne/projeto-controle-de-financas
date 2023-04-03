@@ -32,6 +32,24 @@ const createWallet = async (req, res, next) => {
   }
 };
 
+const updateWallet = async (req, res, next) => {
+  try {
+    const { tipo, descricao, valor } = req.body;
+
+    const { id } = req.params;
+    const walletChanged = await Wallets.updateWallet(
+      id,
+      tipo,
+      descricao,
+      valor,
+    );
+    
+    return res.status(200).json(walletChanged);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const deleteWallet = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -47,5 +65,6 @@ module.exports = {
   getWallets,
   getWalletId,
   createWallet,
+  updateWallet,
   deleteWallet,
 };

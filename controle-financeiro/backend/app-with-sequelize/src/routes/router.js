@@ -12,6 +12,7 @@ const {
   getWallets,
   getWalletId,
   createWallet,
+  updateWallet,
   deleteWallet,
 } = require('../controllers/wallet');
 const {
@@ -29,6 +30,7 @@ router.delete('/delete/:id', verifyToken, deleteUser);
 router.get('/wallets', verifyToken, getWallets);
 router.get('/wallet/:id', verifyToken, getWalletId);
 router.post('/wallet', verifyToken, validateDadosWallet, createWallet);
+router.put('/updatewallet/:id', verifyToken, updateWallet);
 router.delete('/deletew/:id', verifyToken ,deleteWallet);
 
 module.exports = router;

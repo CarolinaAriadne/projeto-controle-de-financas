@@ -1,4 +1,4 @@
-const { Wallet } = require('../models');
+const { Wallet, User } = require('../models');
 const erroHandler = require('../middlewares/erroHandler');
 
 const getWallets = async () => {
@@ -23,6 +23,20 @@ const createWallet = async (tipo, descricao, valor) => {
   return newWallet;
 };
 
+const updateWallet = async (id, tipo, descricao, valor) => {
+  const wallet = await Wallet.findByPk(id);
+
+  if (!wallet) {
+    throw erroHandler(404, 'Wallet not found');
+  }
+
+  const updatedWallet = await Wallet.update(
+    { tipo, descricao, valor },
+    { where: { id } },
+  );
+  return updatedWallet;
+};
+
 const deleteWallet = async id => {
   await Wallet.destroy({ where: { id } });
 };
@@ -31,5 +45,6 @@ module.exports = {
   getWallets,
   getWalletId,
   createWallet,
+  updateWallet,
   deleteWallet,
 };
