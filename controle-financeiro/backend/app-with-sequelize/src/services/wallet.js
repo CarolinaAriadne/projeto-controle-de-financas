@@ -26,5 +26,5 @@ const createWallet = async (tipo, descricao, valor) => {
 module.exports = {
   getWallets,
   getWalletId,
-  createWallet
+  createWallet,
 };

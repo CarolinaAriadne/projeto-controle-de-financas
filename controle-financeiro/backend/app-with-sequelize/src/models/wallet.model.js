@@ -1,4 +1,3 @@
-'use strict';
 
 const WalletModel = (sequelize, DataTypes) => {
   const Wallet = sequelize.define(
