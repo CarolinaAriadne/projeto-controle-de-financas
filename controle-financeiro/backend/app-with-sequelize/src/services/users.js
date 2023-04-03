@@ -9,6 +9,7 @@ const getAllUsers = async () => {
 
 const loginUser = async (email, senha) => {
   const user = await User.findOne({ where: { email, senha } });
+  console.log(user, 'service')
   if (!user) {
     throw erroHandler(400, 'Invalids fields');
   }

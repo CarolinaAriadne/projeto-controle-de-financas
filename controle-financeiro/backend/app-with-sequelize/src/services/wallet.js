@@ -23,8 +23,13 @@ const createWallet = async (tipo, descricao, valor) => {
   return newWallet;
 };
 
+const deleteWallet = async id => {
+  await Wallet.destroy({ where: { id } });
+};
+
 module.exports = {
   getWallets,
   getWalletId,
   createWallet,
+  deleteWallet,
 };

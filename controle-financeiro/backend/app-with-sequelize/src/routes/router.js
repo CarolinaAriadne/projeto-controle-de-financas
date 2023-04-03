@@ -8,7 +8,12 @@ const {
   createUser,
   deleteUser,
 } = require('../controllers/users');
-const { getWallets, getWalletId, createWallet } = require('../controllers/wallet');
+const {
+  getWallets,
+  getWalletId,
+  createWallet,
+  deleteWallet,
+} = require('../controllers/wallet');
 const {
   validateUserLogin,
   validateDadosUser,
@@ -16,14 +21,14 @@ const {
 const { validateDadosWallet } = require('../middlewares/validateWallet');
 const { verifyToken } = require('../middlewares/validateToken');
 
-router.get('/users', getAllUsers);
+router.get('/users', verifyToken,  getAllUsers);
 router.post('/login', validateUserLogin, loginUser);
 router.post('/register', validateDadosUser, createUser);
-router.get('/user/:id', getUserId);
-router.delete('/delete/:id', deleteUser);
-router.get('/wallets', getWallets);
-router.get('/wallet/:id', getWalletId);
-router.post('/wallet', verifyToken,  createWallet);
-
+router.get('/user/:id', verifyToken,  getUserId);
+router.delete('/delete/:id', verifyToken, deleteUser);
+router.get('/wallets', verifyToken, getWallets);
+router.get('/wallet/:id', verifyToken, getWalletId);
+router.post('/wallet', verifyToken, validateDadosWallet, createWallet);
+router.delete('/deletew/:id', verifyToken ,deleteWallet);
 
 module.exports = router;

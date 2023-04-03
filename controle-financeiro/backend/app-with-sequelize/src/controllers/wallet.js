@@ -32,8 +32,20 @@ const createWallet = async (req, res, next) => {
   }
 };
 
+const deleteWallet = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await Wallets.deleteWallet(id);
+
+    return res.status(204).end();
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getWallets,
   getWalletId,
   createWallet,
+  deleteWallet,
 };
