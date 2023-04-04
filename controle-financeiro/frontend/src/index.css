@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  /* background-image: url('../src/images/css-gradient-background.png'); */
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 195vh;
+}
+
+.formLogin {
+  display: flex;
+  flex-direction: column;
+  padding-top: 70%;
+  margin-inline-end: 50px;
+}
+
+/* .formRegister {
+  display: flex;
+  flex-direction: column;
+  padding-top: 70%;
+  margin-inline-end: 50px;
+} */
+
+.sectionEmail {
+  margin-bottom: 25px;
+}
+
+.sectionSenha {
+  margin-bottom: 25px;
+}
+
+/* .sectionNome {
+  margin-bottom: 25px;
+} */
+
+/* .h1Task {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  padding-top: 50px;
+  font-size: 50px;
+} */
+/* 
+.container {
+  border: 2px solid #fff;
+  padding: 30px 40px;
+  min-width: 500px;
+  width: 100%;
+  max-height: 575px;
+  overflow-y: scroll;
+} */
+
+/* .container-new-task {
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+} */
+
+/* .container-new-task input {
+  flex: 3;
+  font-size: 1rem;
+  border: 2px solid #d1d3d4;
+  border-radius: 5px;
+  padding: 12px;
+  font-weight: 500;
+} */
+
+/* .tasks-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 30px 20px;
+  margin-top: 60px;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  width: 100%;
+} */
+
+/* .container-new-task input:focus {
+  outline: none;
+  border-color: #41b883;
+} */
+
+/* .newTaskButton {
+  flex: 1;
+  border-radius: 5px;
+  font-weight: 500;
+  height: 100%;
+  width: 100px;
+  font-size: 1rem;
+  border: none;
+  background-color: #41b883;
+  color: #fff;
+  padding: 12px;
+  margin-left: 12px;
+  cursor: pointer;
+} */
+
+/* .p-addtask {
+  display: block;
+  align-items: center;
+  width: 80%;
+} */
+
+/* .btn-excluir-edit {
+  display: block;
+  flex: 1;
+  border-radius: 5px;
+  font-weight: 500;
+  height: 100%;
+  width: 100px;
+  font-size: 1rem;
+  border: none;
+  background-color: #41b883;
+  color: #fff;
+  margin-left: 200px;
+  padding: 12px;
+  cursor: pointer;
+} */
+
+/* .modal-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#008B8B;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+} */
+
+/* .modal-content {
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+} */
+
+/* .inputModal:focus {
+  outline: none;
+  border-color: #41b883;
+} */
+
+/* .inputModal {
+  flex: 3;
+  font-size: 1rem;
+  border: 2px solid #d1d3d4;
+  border-radius: 5px;
+  padding: 12px;
+  margin-left: 8.5px;
+  font-weight: 500;
+  margin-top: 7px;
+} */
+
+/* .btnSalvarVoltar {
+  flex: 1;
+  border-radius: 5px;
+  font-weight: 500;
+  height: 100%;
+  width: 100px;
+  font-size: 1rem;
+  border: none;
+  background-color: #41b883;
+  color: #fff;
+  padding: 12px;
+  margin-left: 12px;
+  margin-top: 8px;
+  cursor: pointer;
+} */
+
+.erroDeDados {
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 0.8rem;
+  margin-left: 15%;
+}
+
+/* .erroDeDados2 {
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 0.8rem;
+  margin-top: 10px;
+  font-size: 19px;
+  color: aliceblue;
+  text-align: center;
+} */

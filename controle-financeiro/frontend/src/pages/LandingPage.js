@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function LandingPage() {
   const navigate = useNavigate();
   useEffect(() => {
-    navigate("/wallets");
+    navigate("/login");
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
