@@ -9,7 +9,7 @@ export default function ButtonSubmit({ content, type, disabled }) {
 }
 
 const StyledButton = styled.button`
-  background: linear-gradient(to right, #14163c, #03217b 79%);
+  background: linear-gradient(to right, #02AAB0 0%, #00CDAC  51%, #02AAB0  100%);
   margin-left: 27%;
   margin-top: 8%;
   margin-bottom: 40px;
@@ -22,3 +22,4 @@ const StyledButton = styled.button`
   border-radius: 2rem;
   cursor: pointer;
 `;
+
