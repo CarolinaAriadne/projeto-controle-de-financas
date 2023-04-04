@@ -1,4 +1,4 @@
-const { Wallet, User } = require('../models');
+const { Wallet} = require('../models');
 const erroHandler = require('../middlewares/erroHandler');
 
 const getWallets = async () => {
