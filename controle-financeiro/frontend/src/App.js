@@ -33,6 +33,8 @@ const MainContainer = styled.div`
   flex-direction: column;
   height: 80vh;
   width: 30vw;
+  margin-left:35%;
+  margin-top: 5%;
   background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px 0 rgba(31, 39, 135, 0.37);
   backdrop-filter: blur(8.5px);

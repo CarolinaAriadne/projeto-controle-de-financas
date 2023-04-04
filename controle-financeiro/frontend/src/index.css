@@ -7,15 +7,9 @@
   font-family: 'Poppins', sans-serif;
 }
 
-body {
+.containerLogin {
   font-family: 'Raleway', sans-serif;
-  /* background-image: url('../src/images/css-gradient-background.png'); */
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 195vh;
+  height: 380px;
 }
 
 .formLogin {

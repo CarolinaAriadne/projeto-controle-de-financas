@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
-import Input from "../components/Input/styles";
+import InputLogin from "../components/Input/styles";
 import ButtonSubmit from "../components/ButtonSubmit/styles";
 import Button from "../components/Button/styles";
 
@@ -26,46 +26,48 @@ export default function LoginPage() {
   };
 
   return (
-    <form className="formLogin" onSubmit={onSubmit}>
-      <section className="sectionEmail">
-        <Input
-          placeholder="email"
-          name="email"
-          type="text"
-          onChange={({ target }) => {
-            setEmail(target.value);
-          }}
-          onKeyUp={disableSubmit}
-          value={email}
-        ></Input>
-      </section>
-      <section className="sectionSenha">
-        <Input
-          placeholder="senha"
-          name="senha"
-          type="text"
-          onChange={({ target }) => {
-            setPassword(target.value);
-          }}
-          onKeyUp={disableSubmit}
-          value={senha}
-        ></Input>
-      </section>
-      <section>
-        <ButtonSubmit
-          type="submit"
-          content="Enviar"
-          disabled={disabled}
-        ></ButtonSubmit>
-      </section>
-      <section>
-        <Button
-          type="button"
-          content="Não tenho conta"
-          onClick={() => navigate("/register")}
-        ></Button>
-      </section>
-      <section>{error && <p className="erroDeDados">{error}</p>}</section>
-    </form>
+    <section className="containerLogin">
+      <form className="formLogin" onSubmit={onSubmit}>
+        <section className="sectionEmail">
+          <InputLogin
+            placeholder="email"
+            name="email"
+            type="text"
+            onChange={({ target }) => {
+              setEmail(target.value);
+            }}
+            onKeyUp={disableSubmit}
+            value={email}
+          ></InputLogin>
+        </section>
+        <section className="sectionSenha">
+          <InputLogin
+            placeholder="senha"
+            name="senha"
+            type="text"
+            onChange={({ target }) => {
+              setPassword(target.value);
+            }}
+            onKeyUp={disableSubmit}
+            value={senha}
+          ></InputLogin>
+        </section>
+        <section>
+          <ButtonSubmit
+            type="submit"
+            content="Enviar"
+            disabled={disabled}
+          ></ButtonSubmit>
+        </section>
+        <section>
+          <Button
+            type="button"
+            content="Não tenho conta"
+            onClick={() => navigate("/register")}
+          ></Button>
+        </section>
+        <section>{error && <p className="erroDeDados">{error}</p>}</section>
+      </form>
+    </section>
   );
 }

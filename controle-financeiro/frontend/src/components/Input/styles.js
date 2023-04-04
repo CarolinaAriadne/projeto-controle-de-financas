@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default function Input({
+export default function InputLogin({
   name,
   type,
   onChange,
