@@ -5,29 +5,35 @@ import InputLogin from "../components/Input/styles";
 import ButtonSubmit from "../components/ButtonSubmit/styles";
 import Button from "../components/Button/styles";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [error, setError] = useState("");
+  const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
-  const [senha, setPassword] = useState("");
-  const [disabled, setDisabled] = useState(true);
+  const [senha, setSenha] = useState("");
+  const [disabled, setDisabled] = useState("");
 
   const navigate = useNavigate();
 
-  const onSubmit = async (event) => {
+  const handlerSubmit = async (event) => {
     event.preventDefault();
+
     try {
-      const { data } = await api.post("/login", { email, senha });
+      const { data } = await api.post("/register", { nome, email, senha });
       if (data.token) {
         localStorage.setItem("user", JSON.stringify(data));
-        navigate("/wallets");
       }
+      alert("Cadastrado realizado com sucesso!");
     } catch (err) {
       setError("Dados inválidos");
     }
   };
 
-  const disableSubmit = () => {
-    if (typeof email === "string" && typeof senha === "string") {
+  const disabledSubmit = () => {
+    if (
+      typeof nome === "string" &&
+      typeof email === "string" &&
+      typeof senha === "string"
+    ) {
       setDisabled(false);
       setError("");
     } else {
@@ -35,10 +41,21 @@ export default function LoginPage() {
       setError("Dados inválidos");
     }
   };
-
   return (
-    <section className="containerLogin">
-      <form className="formLogin" onSubmit={onSubmit}>
+    <section className="containerRegister">
+      <form className="formRegister" onSubmit={handlerSubmit}>
+        <section className="sectionNome">
+          <InputLogin
+            placeholder="nome"
+            name="nome"
+            type="text"
+            onChange={({ target }) => {
+              setNome(target.value);
+            }}
+            onKeyUp={disabledSubmit}
+            value={nome}
+          ></InputLogin>
+        </section>
         <section className="sectionEmail">
           <InputLogin
             placeholder="email"
@@ -47,7 +64,7 @@ export default function LoginPage() {
             onChange={({ target }) => {
               setEmail(target.value);
             }}
-            onKeyUp={disableSubmit}
+            onKeyUp={disabledSubmit}
             value={email}
           ></InputLogin>
         </section>
@@ -57,24 +74,24 @@ export default function LoginPage() {
             name="senha"
             type="text"
             onChange={({ target }) => {
-              setPassword(target.value);
+              setSenha(target.value);
             }}
-            onKeyUp={disableSubmit}
+            onKeyUp={disabledSubmit}
             value={senha}
           ></InputLogin>
         </section>
         <section>
           <ButtonSubmit
             type="submit"
-            content="Enviar"
+            content="Cadastrar"
             disabled={disabled}
           ></ButtonSubmit>
         </section>
         <section>
           <Button
             type="button"
-            content="Não tenho conta"
-            onClick={() => navigate("/register")}
+            content="login"
+            onClick={() => navigate("/login")}
           ></Button>
         </section>
         <section>{error && <p className="erroDeDados">{error}</p>}</section>

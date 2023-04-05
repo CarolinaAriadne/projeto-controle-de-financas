@@ -12,6 +12,11 @@
   height: 380px;
 }
 
+.containerRegister {
+  font-family: 'Raleway', sans-serif;
+  height: 380px;
+}
+
 .formLogin {
   display: flex;
   flex-direction: column;
@@ -19,12 +24,12 @@
   margin-inline-end: 50px;
 }
 
-/* .formRegister {
+.formRegister {
   display: flex;
   flex-direction: column;
   padding-top: 70%;
   margin-inline-end: 50px;
-} */
+}
 
 .sectionEmail {
   margin-bottom: 25px;
@@ -34,9 +39,9 @@
   margin-bottom: 25px;
 }
 
-/* .sectionNome {
+.sectionNome {
   margin-bottom: 25px;
-} */
+} 
 
 /* .h1Task {
   color: #fff;
