@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import api from "../services/api";
+import api from "../services/api";
 import InputLogin from "../components/Input/styles";
 import ButtonSubmit from "../components/ButtonSubmit/styles";
 import Button from "../components/Button/styles";
@@ -13,10 +13,22 @@ export default function LoginPage() {
 
   const navigate = useNavigate();
 
-  const onSubmit = async (event) => {};
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await api.post("/login", { email, senha });
+
+      if (data.token) {
+        localStorage.setItem("user", JSON.stringify(data));
+        navigate("/wallets");
+      }
+    } catch (err) {
+      setError("Dados inválidos");
+    }
+  };
 
   const disableSubmit = () => {
-    if (typeof email === "string" && typeof password === "string") {
+    if (typeof email === "string" && typeof senha === "string") {
       setDisabled(false);
       setError("");
     } else {
