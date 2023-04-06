@@ -1,7 +1,7 @@
-# Projeto carteira de controle financeiro /  Front-End 
+# Projeto carteira de controle financeiro /  FullStack
 
 ## Tecnologias e ferramentas utilizadas:
 
-### JavaScript, ReactJS, ContextAPI, CSS3, StyledComponents
+### JavaScript, ReactJS, ContextAPI, CSS3, StyledComponents, Arquitetura de Software, Node.JS, Express, MySQL e Joi
 
-#### *Backend em construção*
+#### *Em construção*
