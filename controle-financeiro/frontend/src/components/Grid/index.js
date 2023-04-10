@@ -3,11 +3,13 @@ import GridItem from '../GridItem';
 import * as C from './styles';
 
 const Grid = ({ itens, setItens }) => {
+  console.log(itens, 'itens')
   const onDelete = id => {
     const newArray = itens.filter(transaction => transaction.id !== id);
     setItens(newArray);
     localStorage.setItem('transactions', JSON.stringify(newArray));
   };
+ 
 
   return (
     <C.Table>
@@ -22,8 +24,8 @@ const Grid = ({ itens, setItens }) => {
         </C.Tr>
       </C.Thead>
       <C.Tbody>
-        {itens?.map((item, index) => (
-          <GridItem key={index} item={item} onDelete={onDelete} />
+        {itens.map((item, index) => (
+          <GridItem key={index} item={item}  onDelete={onDelete} />
         ))}
       </C.Tbody>
     </C.Table>

@@ -3,7 +3,6 @@ const erroHandler = require('../middlewares/erroHandler');
 
 const getWallets = async () => {
   const allWallets = await Wallet.findAll();
-
   return allWallets;
 };
 

@@ -3,11 +3,12 @@ import Grid from '../Grid';
 import * as C from './styles';
 
 const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
+  console.log(transactionsList, 'laaaaaaaa')
   const [desc, setDesc] = useState(''); // descrição
   const [amount, setAmount] = useState(''); // valor
-  const [isExpense, setExpense] = useState(false); // check
+  const [isExpense, setExpense] = useState(''); // input
 
-  const generateId = () => Math.round(Math.random() * 1000);
+  // const generateId = () => Math.round(Math.random() * 1000);
 
   const handleSave = () => {
     if (!desc || !amount) {
@@ -19,16 +20,16 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
     }
 
     const transaction = {
-      id: generateId,
-      desc: desc,
-      amount: amount,
-      expense: isExpense,
+      descricao: desc,
+      valor: amount,
+      tipo: isExpense,
     };
 
     handleAdd(transaction);
 
     setDesc('');
     setAmount('');
+    setExpense('');
   };
 
   return (
@@ -46,7 +47,15 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
             onChange={e => setAmount(e.target.value)}
           />
         </C.InputContainer>
-        <C.RadioGroup>
+        <C.InputContainer>
+          <C.Label>Entrada ou Saída</C.Label>
+          <C.Input
+            value={isExpense}
+            type="text"
+            onChange={e => setExpense(e.target.value)}
+          />
+        </C.InputContainer>
+        {/* <C.RadioGroup>
           <C.Input
             type="radio"
             id="rIncome"
@@ -62,7 +71,7 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
             onChange={() => setExpense(!isExpense)}
           />
           <C.Label htmlFor="rExpenses">Saída</C.Label>
-        </C.RadioGroup>
+        </C.RadioGroup> */}
         <C.Button onClick={handleSave}>Adicionar</C.Button>
       </C.Container>
       <Grid itens={transactionsList} setItens={setTransactionsList} />
