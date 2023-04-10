@@ -49,11 +49,9 @@ const Wallets = () => {
       const { data } = await api.post("/wallet", transaction, {
         headers: { Authorization: user.token },
       });
-      console.log(data, "data");
 
       if (data) {
         const newArrayTransactions = [...transactionsList, data];
-        console.log(newArrayTransactions, "newtransactions");
         setTransactionsList(newArrayTransactions);
         localStorage.setItem(
           "transactions",

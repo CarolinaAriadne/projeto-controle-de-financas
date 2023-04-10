@@ -1,21 +1,18 @@
-import React, { useState } from 'react';
-import Grid from '../Grid';
-import * as C from './styles';
+import React, { useState } from "react";
+import Grid from "../Grid";
+import * as C from "./styles";
 
 const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
-  console.log(transactionsList, 'laaaaaaaa')
-  const [desc, setDesc] = useState(''); // descrição
-  const [amount, setAmount] = useState(''); // valor
-  const [isExpense, setExpense] = useState(''); // input
-
-  // const generateId = () => Math.round(Math.random() * 1000);
+  const [desc, setDesc] = useState(""); // descrição
+  const [amount, setAmount] = useState(""); // valor
+  const [isExpense, setExpense] = useState(""); // input
 
   const handleSave = () => {
     if (!desc || !amount) {
-      alert('Informe a descrição e o valor!');
+      alert("Informe a descrição e o valor!");
       return;
     } else if (amount < 1) {
-      alert('O valor precisa ser positivo!');
+      alert("O valor precisa ser positivo!");
       return;
     }
 
@@ -27,9 +24,9 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
 
     handleAdd(transaction);
 
-    setDesc('');
-    setAmount('');
-    setExpense('');
+    setDesc("");
+    setAmount("");
+    setExpense("");
   };
 
   return (
@@ -37,14 +34,14 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
       <C.Container>
         <C.InputContainer>
           <C.Label>Descrição</C.Label>
-          <C.Input value={desc} onChange={e => setDesc(e.target.value)} />
+          <C.Input value={desc} onChange={(e) => setDesc(e.target.value)} />
         </C.InputContainer>
         <C.InputContainer>
           <C.Label>Valor</C.Label>
           <C.Input
             value={amount}
             type="number"
-            onChange={e => setAmount(e.target.value)}
+            onChange={(e) => setAmount(e.target.value)}
           />
         </C.InputContainer>
         <C.InputContainer>
@@ -52,7 +49,7 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
           <C.Input
             value={isExpense}
             type="text"
-            onChange={e => setExpense(e.target.value)}
+            onChange={(e) => setExpense(e.target.value)}
           />
         </C.InputContainer>
         {/* <C.RadioGroup>

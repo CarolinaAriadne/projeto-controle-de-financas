@@ -27,7 +27,7 @@ router.post('/login', validateUserLogin, loginUser);
 router.post('/register', validateDadosUser, createUser);
 router.get('/user/:id', verifyToken,  getUserId);
 router.delete('/delete/:id', verifyToken, deleteUser);
-router.get('/wallets', verifyToken, getWallets);
+router.get('/wallets', getWallets);
 router.get('/wallet/:id', verifyToken, getWalletId);
 router.post('/wallet', verifyToken, validateDadosWallet, createWallet);
 router.put('/updatewallet/:id', verifyToken, updateWallet);
