@@ -1,10 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import WalletsPage from "./pages/WalletsPage";
-import LandingPage from "./pages/LandingPage";
-import LoginPage from "./pages/LoginPage";
-import styled from "styled-components";
-import RegisterPage from "./pages/Register";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import WalletsPage from './pages/WalletsPage';
+import LandingPage from './pages/LandingPage';
+import LoginPage from './pages/LoginPage';
+import styled from 'styled-components';
+import RegisterPage from './pages/Register';
 
 function App() {
   return (

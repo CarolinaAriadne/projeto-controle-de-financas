@@ -1,44 +1,44 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import api from "../services/api";
-import InputLogin from "../components/Input/styles";
-import ButtonSubmit from "../components/ButtonSubmit/styles";
-import Button from "../components/Button/styles";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import api from '../services/api';
+import InputLogin from '../components/Input/styles';
+import ButtonSubmit from '../components/ButtonSubmit/styles';
+import Button from '../components/Button/styles';
 
 export default function RegisterPage() {
-  const [error, setError] = useState("");
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [disabled, setDisabled] = useState("");
+  const [error, setError] = useState('');
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [disabled, setDisabled] = useState('');
 
   const navigate = useNavigate();
 
-  const handlerSubmit = async (event) => {
+  const handlerSubmit = async event => {
     event.preventDefault();
 
     try {
-      const { data } = await api.post("/register", { nome, email, senha });
+      const { data } = await api.post('/register', { nome, email, senha });
       if (data.token) {
-        localStorage.setItem("user", JSON.stringify(data));
+        localStorage.setItem('user', JSON.stringify(data));
       }
-      alert("Cadastrado realizado com sucesso!");
+      alert('Cadastrado realizado com sucesso!');
     } catch (err) {
-      setError("Dados inválidos");
+      setError('Dados inválidos');
     }
   };
 
   const disabledSubmit = () => {
     if (
-      typeof nome === "string" &&
-      typeof email === "string" &&
-      typeof senha === "string"
+      typeof nome === 'string' &&
+      typeof email === 'string' &&
+      typeof senha === 'string'
     ) {
       setDisabled(false);
-      setError("");
+      setError('');
     } else {
       setDisabled(true);
-      setError("Dados inválidos");
+      setError('Dados inválidos');
     }
   };
   return (
@@ -91,7 +91,7 @@ export default function RegisterPage() {
           <Button
             type="button"
             content="login"
-            onClick={() => navigate("/login")}
+            onClick={() => navigate('/login')}
           ></Button>
         </section>
         <section>{error && <p className="erroDeDados">{error}</p>}</section>

@@ -1,38 +1,38 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import api from "../services/api";
-import InputLogin from "../components/Input/styles";
-import ButtonSubmit from "../components/ButtonSubmit/styles";
-import Button from "../components/Button/styles";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import api from '../services/api';
+import InputLogin from '../components/Input/styles';
+import ButtonSubmit from '../components/ButtonSubmit/styles';
+import Button from '../components/Button/styles';
 
 export default function LoginPage() {
-  const [error, setError] = useState("");
-  const [email, setEmail] = useState("");
-  const [senha, setPassword] = useState("");
+  const [error, setError] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setPassword] = useState('');
   const [disabled, setDisabled] = useState(true);
 
   const navigate = useNavigate();
 
-  const onSubmit = async (event) => {
+  const onSubmit = async event => {
     event.preventDefault();
     try {
-      const { data } = await api.post("/login", { email, senha });
+      const { data } = await api.post('/login', { email, senha });
       if (data.token) {
-        localStorage.setItem("user", JSON.stringify(data));
-        navigate("/wallets");
+        localStorage.setItem('user', JSON.stringify(data));
+        navigate('/wallets');
       }
     } catch (err) {
-      setError("Dados inválidos");
+      setError('Dados inválidos');
     }
   };
 
   const disableSubmit = () => {
-    if (typeof email === "string" && typeof senha === "string") {
+    if (typeof email === 'string' && typeof senha === 'string') {
       setDisabled(false);
-      setError("");
+      setError('');
     } else {
       setDisabled(true);
-      setError("Dados inválidos");
+      setError('Dados inválidos');
     }
   };
 
@@ -74,7 +74,7 @@ export default function LoginPage() {
           <Button
             type="button"
             content="Não tenho conta"
-            onClick={() => navigate("/register")}
+            onClick={() => navigate('/register')}
           ></Button>
         </section>
         <section>{error && <p className="erroDeDados">{error}</p>}</section>

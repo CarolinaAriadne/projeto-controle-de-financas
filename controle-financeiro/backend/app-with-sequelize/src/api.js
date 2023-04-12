@@ -10,4 +10,3 @@ app.use(router);
 app.use(err);
 
 module.exports = app;
-

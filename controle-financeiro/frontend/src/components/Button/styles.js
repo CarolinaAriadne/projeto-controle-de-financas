@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export default function Button({ content, type, onClick }) {
   return (
@@ -9,7 +9,7 @@ export default function Button({ content, type, onClick }) {
 }
 
 const StyledButton = styled.button`
-  background: linear-gradient(to right, #02AAB0 0%, #00CDAC  51%, #02AAB0  100%);
+  background: linear-gradient(to right, #02aab0 0%, #00cdac 51%, #02aab0 100%);
   margin-left: 27%;
   margin-bottom: 30px;
   padding: 5%;

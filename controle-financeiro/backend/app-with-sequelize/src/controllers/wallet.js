@@ -43,7 +43,7 @@ const updateWallet = async (req, res, next) => {
       descricao,
       valor,
     );
-    
+
     return res.status(200).json(walletChanged);
   } catch (err) {
     next(err);

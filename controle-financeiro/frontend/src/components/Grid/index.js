@@ -1,24 +1,24 @@
-import React from "react";
-import GridItem from "../GridItem";
-import * as C from "./styles";
-import api from "../../services/api";
+import React from 'react';
+import GridItem from '../GridItem';
+import * as C from './styles';
+import api from '../../services/api';
 
 const Grid = ({ itens, setItens }) => {
-  const onDelete = async (id) => {
-    const user = JSON.parse(localStorage.getItem("user"));
+  const onDelete = async id => {
+    const user = JSON.parse(localStorage.getItem('user'));
     try {
       await api.delete(`/deletew/${id}`, {
         headers: { Authorization: user.token },
       });
 
-      const newArrayWithoutWallet = itens.filter((item) => {
+      const newArrayWithoutWallet = itens.filter(item => {
         return item.id !== id;
       });
 
       setItens(newArrayWithoutWallet);
-      alert("Entrada ou saída deletada com sucesso");
+      alert('Entrada ou saída deletada com sucesso');
     } catch (err) {
-      alert("Bad Request");
+      alert('Bad Request');
     }
   };
 

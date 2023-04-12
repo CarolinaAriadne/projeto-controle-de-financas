@@ -1,4 +1,3 @@
-
 const WalletModel = (sequelize, DataTypes) => {
   const Wallet = sequelize.define(
     'Wallet',

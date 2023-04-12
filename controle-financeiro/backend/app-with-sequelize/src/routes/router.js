@@ -22,15 +22,15 @@ const {
 const { validateDadosWallet } = require('../middlewares/validateWallet');
 const { verifyToken } = require('../middlewares/validateToken');
 
-router.get('/users', verifyToken,  getAllUsers);
+router.get('/users', verifyToken, getAllUsers);
 router.post('/login', validateUserLogin, loginUser);
 router.post('/register', validateDadosUser, createUser);
-router.get('/user/:id', verifyToken,  getUserId);
+router.get('/user/:id', verifyToken, getUserId);
 router.delete('/delete/:id', verifyToken, deleteUser);
 router.get('/wallets', getWallets);
 router.get('/wallet/:id', verifyToken, getWalletId);
 router.post('/wallet', verifyToken, validateDadosWallet, createWallet);
 router.put('/updatewallet/:id', verifyToken, updateWallet);
-router.delete('/deletew/:id', verifyToken ,deleteWallet);
+router.delete('/deletew/:id', verifyToken, deleteWallet);
 
 module.exports = router;
