@@ -5,6 +5,7 @@ import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import styled from 'styled-components';
 import RegisterPage from './pages/Register';
+import { EditWalletPage } from './pages/EditWalletPage';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           }
         />
         <Route exact path="/wallets" element={<WalletsPage />} />
+        <Route exact path="/edit" element={<EditWalletPage />} />
       </Routes>
     </Router>
   );

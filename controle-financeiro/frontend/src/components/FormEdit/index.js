@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import Grid from '../Grid';
+import { useNavigate } from 'react-router-dom';
+// import Grid from '../Grid';
 import * as C from './styles';
 
-const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
+const FormEdit = ({ handleEdit, transactionsList, setTransactionsList }) => {
   const [desc, setDesc] = useState(''); // descrição
   const [amount, setAmount] = useState(''); // valor
   const [isExpense, setExpense] = useState(''); // input
+
+  const navigate = useNavigate();
 
   const handleSave = () => {
     if (!desc || !amount) {
@@ -22,7 +25,7 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
       tipo: isExpense,
     };
 
-    handleAdd(transaction);
+    handleEdit(transaction);
 
     setDesc('');
     setAmount('');
@@ -55,11 +58,11 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
             onChange={e => setExpense(e.target.value)}
           />
         </C.InputContainer>
-        <C.Button onClick={handleSave}>Adicionar</C.Button>
+        <C.Button onClick={handleSave}>Editar</C.Button>
+        <C.Button onClick={() => navigate('/wallets')}>Voltar</C.Button>
       </C.Container>
-      <Grid itens={transactionsList} setItens={setTransactionsList} />
     </>
   );
 };
 
-export default Form;
+export default FormEdit;

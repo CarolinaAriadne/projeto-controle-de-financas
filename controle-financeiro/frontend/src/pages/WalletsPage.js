@@ -5,7 +5,7 @@ import Resume from '../components/Resume';
 import GlobalStyle from '../styles/globalWallets';
 import api from '../services/api';
 
-const Wallets = () => {
+const WalletsPage = () => {
   const [transactionsList, setTransactionsList] = useState([]);
   const [income, setIncome] = useState(0); // entrada
   const [expense, setExpense] = useState(0); // saída
@@ -78,4 +78,4 @@ const Wallets = () => {
   );
 };
 
-export default Wallets;
+export default WalletsPage;
