@@ -1,7 +1,7 @@
 # Projeto carteira de controle financeiro /  FullStack
 
-## Tecnologias e ferramentas utilizadas:
+## É possível fazer criar um usuário e fazer login, criar/editar/atualizar/excluir despesas (saídas) e rendas (entradas).
 
-### JavaScript, ReactJS, ContextAPI, CSS3, StyledComponents, Arquitetura de Software, Node.JS, Express, MySQL e Joi
+### Tecnologias e ferramentas utilizadas:
 
-#### *Em construção*
+#### JavaScript, ReactJS, ContextAPI, CSS3, StyledComponents, Arquitetura de Software, Node.JS, Express, Jwt, MySQL e Joi
