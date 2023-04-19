@@ -8,11 +8,11 @@
 
 ------------------------------------------------------------------------------------------------------------------------------
 
+##BackEnd
 ### No diretório backend, rodar o seguinte comando: npm install
 ### Em seguida, no diretório app-with-sequelize, rodar o seguinte comando: npm run debug
-<br>
-### No diretório frontend, rodar os seguintes comandos, respectivamente:
-#### npm install 
-#### npm start
+
+##FrontEnd
+### No diretório frontend, rodar os seguintes comandos, respectivamente: 1- npm install  2- npm start
 
 
