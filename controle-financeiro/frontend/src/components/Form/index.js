@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import Grid from '../Grid';
+import Select from '../Select/styles';
 import * as C from './styles';
 
 const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
+  const options = [
+    { value: '', text: '--Escolha uma opção--' },
+    { value: 'entrada', text: 'entrada' },
+    { value: 'saída', text: 'saída' },
+  ];
+
   const [desc, setDesc] = useState(''); // descrição
   const [amount, setAmount] = useState(''); // valor
-  const [isExpense, setExpense] = useState(''); // input
+  const [selected, setSelected] = useState(options[0].value);
 
   const handleSave = () => {
     if (!desc || !amount) {
@@ -19,14 +26,18 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
     const transaction = {
       descricao: desc,
       valor: amount,
-      tipo: isExpense,
+      tipo: selected,
     };
 
     handleAdd(transaction);
 
     setDesc('');
     setAmount('');
-    setExpense('');
+    setSelected('');
+  };
+
+  const handleChange = event => {
+    setSelected(event.target.value);
   };
 
   return (
@@ -47,14 +58,15 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
             onChange={e => setAmount(e.target.value)}
           />
         </C.InputContainer>
-        <C.InputContainer>
-          <C.Input
-            placeholder="entrada ou saída"
-            value={isExpense}
-            type="text"
-            onChange={e => setExpense(e.target.value)}
-          />
-        </C.InputContainer>
+        <Select value={selected} onChange={handleChange}>
+          {options.map(option => {
+            return (
+              <option key={option.value} value={option.value}>
+                {option.text}
+              </option>
+            );
+          })}
+        </Select>
         <C.Button onClick={handleSave}>Adicionar</C.Button>
       </C.Container>
       <Grid itens={transactionsList} setItens={setTransactionsList} />

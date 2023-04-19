@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import Select from '../Select/styles';
 import api from '../../services/api';
 import * as C from './styles';
 
 const FormEdit = () => {
+  const options = [
+    { value: '', text: '--Escolha uma opção--' },
+    { value: 'entrada', text: 'entrada' },
+    { value: 'saída', text: 'saída' },
+  ];
+
   const [desc, setDesc] = useState(''); // descrição
   const [amount, setAmount] = useState(''); // valor
-  const [isExpense, setExpense] = useState(''); // input
   const [id, setId] = useState(0);
+  const [selected, setSelected] = useState(options[0].value);
 
   const navigate = useNavigate();
 
@@ -18,13 +25,13 @@ const FormEdit = () => {
     getOneWallet(paramsId);
   }, []);
 
-  const updateWallet = async ()  => {
+  const updateWallet = async () => {
     const user = JSON.parse(localStorage.getItem('user'));
     const transaction = {
       id: id,
       descricao: desc,
       valor: amount,
-      tipo: isExpense
+      tipo: selected,
     };
 
     try {
@@ -47,10 +54,13 @@ const FormEdit = () => {
       });
       setDesc(response.data.descricao);
       setAmount(response.data.valor);
-      setExpense(response.data.tipo);
     } catch (err) {
       alert('bad request');
     }
+  };
+
+  const handleChange = event => {
+    setSelected(event.target.value);
   };
 
   return (
@@ -71,13 +81,15 @@ const FormEdit = () => {
             onChange={e => setAmount(e.target.value)}
           />
         </C.InputContainer>
-        <C.InputContainer>
-          <C.Input
-            placeholder="entrada ou saída"
-            value={isExpense}
-            type="text"
-          />
-        </C.InputContainer>
+        <Select value={selected} onChange={handleChange}>
+          {options.map(option => {
+            return (
+              <option key={option.value} value={option.value}>
+                {option.text}
+              </option>
+            );
+          })}
+        </Select>
         <C.Button onClick={() => updateWallet()}>Editar</C.Button>
         <C.Button onClick={() => navigate('/wallets')}>Voltar</C.Button>
       </C.Container>

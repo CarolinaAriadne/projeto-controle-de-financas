@@ -23,7 +23,6 @@ const createWallet = async (tipo, descricao, valor) => {
 };
 
 const updateWallet = async (id, tipo, descricao, valor) => {
-  console.log("it's on update");
   const wallet = await Wallet.findByPk(id);
 
   if (!wallet) {
