@@ -1,6 +1,6 @@
 # Projeto carteira de controle financeiro /  FullStack
 
-## É possível fazer criar um usuário e fazer login, criar/editar/atualizar/excluir despesas (saídas) e rendas (entradas).
+## É possível criar um usuário e fazer login, criar/editar/atualizar/excluir despesas (saídas) e rendas (entradas).
 
 ### Tecnologias e ferramentas utilizadas:
 
