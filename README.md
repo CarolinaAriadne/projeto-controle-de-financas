@@ -5,3 +5,16 @@
 #### Tecnologias e ferramentas utilizadas:
 
 #### JavaScript, ReactJS, ContextAPI, CSS3, StyledComponents, Arquitetura de Software, Node.JS, Express, Jwt, MySQL e Joi
+
+------------------------------------------------------------------------------------------------------------------------------
+
+## Build da aplicação:
+
+### No diretório backend, rodar o seguinte comando: npm install
+##  Em seguida, no diretório app-with-sequelize, rodar o seguinte comando: npm run debug
+
+### No diretório frontend, rodar os seguintes comandos, respectivamente:
+##  npm install 
+##  npm start
+
+
