@@ -1,35 +1,56 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-// import Grid from '../Grid';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import api from '../../services/api';
 import * as C from './styles';
 
-const FormEdit = ({ handleEdit, transactionsList, setTransactionsList }) => {
+const FormEdit = () => {
   const [desc, setDesc] = useState(''); // descrição
   const [amount, setAmount] = useState(''); // valor
   const [isExpense, setExpense] = useState(''); // input
+  const [id, setId] = useState(0);
 
   const navigate = useNavigate();
 
-  const handleSave = () => {
-    if (!desc || !amount) {
-      alert('Informe a descrição e o valor!');
-      return;
-    } else if (amount < 1) {
-      alert('O valor precisa ser positivo!');
-      return;
-    }
+  const paramsId = useParams();
 
+  useEffect(() => {
+    setId(paramsId.itemId);
+    getOneWallet(paramsId);
+  }, []);
+
+  const updateWallet = async ()  => {
+    const user = JSON.parse(localStorage.getItem('user'));
     const transaction = {
+      id: id,
       descricao: desc,
       valor: amount,
-      tipo: isExpense,
+      tipo: isExpense
     };
 
-    handleEdit(transaction);
+    try {
+      const { data } = await api.put(`/updatewallet/${id}`, transaction, {
+        headers: { Authorization: user.token },
+      });
+      if (data) {
+        alert('Atualizado com sucesso');
+      }
+    } catch (err) {
+      alert('Bad request!');
+    }
+  };
 
-    setDesc('');
-    setAmount('');
-    setExpense('');
+  const getOneWallet = async itemId => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    try {
+      let response = await api.get(`/wallet/${itemId.itemId}`, {
+        headers: { Authorization: user.token },
+      });
+      setDesc(response.data.descricao);
+      setAmount(response.data.valor);
+      setExpense(response.data.tipo);
+    } catch (err) {
+      alert('bad request');
+    }
   };
 
   return (
@@ -55,10 +76,9 @@ const FormEdit = ({ handleEdit, transactionsList, setTransactionsList }) => {
             placeholder="entrada ou saída"
             value={isExpense}
             type="text"
-            onChange={e => setExpense(e.target.value)}
           />
         </C.InputContainer>
-        <C.Button onClick={handleSave}>Editar</C.Button>
+        <C.Button onClick={() => updateWallet()}>Editar</C.Button>
         <C.Button onClick={() => navigate('/wallets')}>Voltar</C.Button>
       </C.Container>
     </>

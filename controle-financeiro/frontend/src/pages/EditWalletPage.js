@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import Modal from 'react-modal';
 import Header from '../components/Header';
 import FormEdit from '../components/FormEdit';
 import GlobalStyle from '../styles/globalWallets';
@@ -13,4 +11,3 @@ export function EditWalletPage() {
     </>
   );
 }
-

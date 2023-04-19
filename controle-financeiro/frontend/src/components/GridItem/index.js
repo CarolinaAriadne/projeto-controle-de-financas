@@ -9,10 +9,10 @@ import {
 
 import { AiOutlineEdit } from 'react-icons/ai';
 
-const GridItem = ({ item, onDelete, openModal }) => {
+const GridItem = ({ item, onDelete}) => {
   const saida = 'saída';
   const entrada = 'entrada';
-
+  
   const navigate = useNavigate();
 
   return (
@@ -27,10 +27,12 @@ const GridItem = ({ item, onDelete, openModal }) => {
         <FaTrash onClick={() => onDelete(item.id)} />
       </C.Td>
       <C.Td>
-        <AiOutlineEdit onClick={() => navigate('/edit')} />
+        <AiOutlineEdit onClick={() => navigate(`/edit/${item.id}`)} />  
       </C.Td>
     </C.Tr>
   );
 };
+
+// navigate('/edit')
 
 export default GridItem;

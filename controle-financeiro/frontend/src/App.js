@@ -35,7 +35,7 @@ function App() {
           }
         />
         <Route exact path="/wallets" element={<WalletsPage />} />
-        <Route exact path="/edit" element={<EditWalletPage />} />
+        <Route path="/edit/:itemId" element={<EditWalletPage />} />
       </Routes>
     </Router>
   );

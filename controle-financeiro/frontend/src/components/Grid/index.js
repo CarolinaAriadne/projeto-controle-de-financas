@@ -1,6 +1,7 @@
 import GridItem from '../GridItem';
 import * as C from './styles';
 import api from '../../services/api';
+// import { useNavigate } from 'react-router-dom';
 
 const Grid = ({ itens, setItens }) => {
   const onDelete = async id => {
@@ -20,6 +21,7 @@ const Grid = ({ itens, setItens }) => {
       alert('Bad Request');
     }
   };
+
 
   return (
     <>
