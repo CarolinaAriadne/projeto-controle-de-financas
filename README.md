@@ -11,7 +11,7 @@
 ## Build da aplicação:
 
 ### No diretório backend, rodar o seguinte comando: npm install
-#### Em seguida, no diretório app-with-sequelize, rodar o seguinte comando: npm run debug
+### Em seguida, no diretório app-with-sequelize, rodar o seguinte comando: npm run debug
 
 ### No diretório frontend, rodar os seguintes comandos, respectivamente:
 #### npm install 
