@@ -22,7 +22,9 @@ export default function LoginPage() {
         navigate('/wallets');
       }
     } catch (err) {
+      console.log('aqui')
       setError('Dados inválidos');
+      console.log(error)
     }
   };
 
@@ -55,7 +57,7 @@ export default function LoginPage() {
           <InputLogin
             placeholder="senha"
             name="senha"
-            type="text"
+            type="password"
             onChange={({ target }) => {
               setPassword(target.value);
             }}
