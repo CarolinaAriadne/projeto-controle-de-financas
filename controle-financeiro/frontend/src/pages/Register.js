@@ -72,7 +72,7 @@ export default function RegisterPage() {
           <InputLogin
             placeholder="senha"
             name="senha"
-            type="text"
+            type="password"
             onChange={({ target }) => {
               setSenha(target.value);
             }}
