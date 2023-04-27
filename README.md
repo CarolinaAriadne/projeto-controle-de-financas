@@ -16,3 +16,4 @@
 ### No diretório frontend, rodar os seguintes comandos, respectivamente: 1- npm install  2- npm start
 
 
+![2023-04-27_14-48-49_AdobeExpress](https://user-images.githubusercontent.com/91351391/234967313-82557063-d784-471e-9c26-e3ca4bba874f.gif)
