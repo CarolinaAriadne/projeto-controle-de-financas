@@ -4,7 +4,7 @@
 
 ## Tecnologias e ferramentas utilizadas:
 
-### JavaScript, ReactJS, ContextAPI, CSS3, StyledComponents, Arquitetura de Software, Node.JS, Express, Jwt, MySQL e Joi
+### JavaScript, ReactJS, ContextAPI, CSS3, StyledComponents, Arquitetura de Software, Node.JS, Express, Jwt, MySQL, Sequelize e Joi
 
 ------------------------------------------------------------------------------------------------------------------------------
 
